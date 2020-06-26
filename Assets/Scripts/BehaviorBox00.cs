@@ -5,7 +5,10 @@ using UnityEngine;
 public class BehaviorBox00 : MonoBehaviour
 {
     public int healthBox;
+
     public GameBehavior gameManager;
+
+    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -27,7 +30,7 @@ public class BehaviorBox00 : MonoBehaviour
     }
 
  
-    void State()
+    public void State()
     {
         if (healthBox == 3)
         {
@@ -46,8 +49,14 @@ public class BehaviorBox00 : MonoBehaviour
 
         else if (healthBox == 0)
         {
+
+            gameManager.CoundDestroyBlock += 1;
             Destroy(gameObject);
             gameManager.Score += 10;
+
+            
+
+
         }
     }
 

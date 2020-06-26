@@ -6,6 +6,7 @@ public class GameBehavior : MonoBehaviour
 {
     public static GameBehavior instance;
     private int _scoreGame = 0;
+    private int _destroyBlock = 0;
 
     void Awake()
     {
@@ -21,6 +22,12 @@ public class GameBehavior : MonoBehaviour
 
         set { _scoreGame = value; }
     }
-   
+
+    public int CoundDestroyBlock
+    {
+        get { return _destroyBlock; }
+
+        set { _destroyBlock = value; }
+    }
 
 }

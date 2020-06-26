@@ -7,15 +7,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public static Bullet instance;
     public Rigidbody2D rb2d;
     public bool inPlay;
     public Transform plato;
     public float speed;
-
     public float thrust;
 
-    public Transform box;
+    public GameBehavior gameManager;
 
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
@@ -24,16 +32,13 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        Speed();
+        Destroy();
 
         if (Input.GetMouseButtonDown(0) && !inPlay)
         {
             inPlay = true;
             rb2d.velocity = new Vector2(0f, 1f) * speed;
         }
-
-
     }
     void Update()
     {
@@ -43,50 +48,33 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    
-
-    public void Speed()
+    public void Destroy()
     {
-        if (GameBehavior.instance.Score == 10)
+        if (GameBehavior.instance.CoundDestroyBlock >= 1)
         {
-            thrust = speed * 20;
-
-            //rb2d.AddForce(transform.up * thrust);
-            //rb2d.AddRelativeForce(Vector3.forvard * thrust);
-            rb2d.AddRelativeForce(transform.forward * thrust);
-
-
-
-            //rb2d.AddForce(Vector2.positiveInfinity * thrust);
-            //rb2d.velocity = new Vector2(0f, 1f) * thrust;
-            //speed = 300;
-            Debug.Log("33333333");
+           
+            SpeedUp();
 
         }
     }
 
-    
-
-    void OnTriggerEnter2D(Collider2D other)
+    public void SpeedUp()
     {
-        if (other.CompareTag("box"))
-        {
-            Debug.Log("5555");
-        }
+        thrust = speed * 10;
+        rb2d.AddForce(new Vector2(1, 1).normalized * thrust);
 
+       
+
+    }       
+
+
+void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.CompareTag("bottom"))
         {
             rb2d.velocity = Vector2.zero;
             inPlay = false;
         }
-
-
     }
-
-    
-
-
-
-
 }
 
