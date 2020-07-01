@@ -17,9 +17,9 @@ public class createPrefab : MonoBehaviour
 
         grid = new GameObject[3, 10];
 
-		for (int x = 0; x < 3; x++)
+		for (int x = 0; x < 1; x++)
 		{
-            for (int y = 0; y < 10; y++)
+            for (int y = 0; y < 1; y++)
 			{
                 grid[x, y] = RegisterIcon(new CCell(x, y));
             }

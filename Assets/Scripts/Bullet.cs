@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Bullet : MonoBehaviour
 {
@@ -23,17 +25,21 @@ public class Bullet : MonoBehaviour
         {
             instance = this;
         }
+
+        rb2d = GetComponent<Rigidbody2D>();
+        transform.position = plato.position;
     }
 
-    void Start()
+    public void StartGame()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        transform.position = plato.position;
+
     }
 
     void FixedUpdate()
     {
         Destroy();
-
+        
         if (Input.GetMouseButtonDown(0) && !inPlay)
         {
             inPlay = true;
@@ -50,31 +56,51 @@ public class Bullet : MonoBehaviour
 
     public void Destroy()
     {
-        if (GameBehavior.instance.CoundDestroyBlock >= 1)
+        if (GameBehavior.instance.CoundDestroyBlock >= 5)
         {
            
             SpeedUp();
-
+            GameBehavior.instance.CoundDestroyBlock = 0;
         }
     }
 
     public void SpeedUp()
     {
-        thrust = speed * 10;
-        rb2d.AddForce(new Vector2(1, 1).normalized * thrust);
+        float cSpeed = rb2d.velocity.magnitude;
+        thrust = cSpeed * ((cSpeed / 10) * rb2d.mass);
+        rb2d.AddForce(rb2d.velocity.normalized * thrust);
 
        
 
     }       
 
+    public void Kill()
+    {
+        SceneManager.LoadSceneAsync("YouLose");
+        //GameBehavior.instance.GameOver(); 
 
-void OnTriggerEnter2D(Collider2D other)
+        /*  if (PlayerPrefs.GetInt("highscore", 0) < GameBehavior.instance.Score)
+          {
+              PlayerPrefs.SetInt("highscore", GameBehavior.instance.Score);
+          }*/
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("bottom"))
         {
-            rb2d.velocity = Vector2.zero;
-            inPlay = false;
+            Kill();
         }
     }
+
+    /*void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("bottom"))
+            {
+                rb2d.velocity = Vector2.zero;
+                inPlay = false;
+            }
+        }*/
+   
 }
 
