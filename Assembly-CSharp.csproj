@@ -69,7 +69,9 @@
     <Compile Include="Assets\Scripts\createPrefab.cs" />
     <Compile Include="Assets\Scripts\GameBehavior.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />
+    <Compile Include="Assets\Scripts\LoseTrigger.cs" />
     <Compile Include="Assets\Scripts\PlatoRun.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\VievGames.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/xacap/Documents/arkanoid/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

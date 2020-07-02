@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
         Destroy();
-        
+
         if (Input.GetMouseButtonDown(0) && !inPlay)
         {
             inPlay = true;
@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviour
     {
         if (GameBehavior.instance.CoundDestroyBlock >= 5)
         {
-           
+
             SpeedUp();
             GameBehavior.instance.CoundDestroyBlock = 0;
         }
@@ -70,9 +70,9 @@ public class Bullet : MonoBehaviour
         thrust = cSpeed * ((cSpeed / 10) * rb2d.mass);
         rb2d.AddForce(rb2d.velocity.normalized * thrust);
 
-       
 
-    }       
+
+    }
 
     public void Kill()
     {
@@ -101,6 +101,6 @@ public class Bullet : MonoBehaviour
                 inPlay = false;
             }
         }*/
-   
+
 }
 

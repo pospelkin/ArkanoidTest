@@ -94,7 +94,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 37
+  controlID: 119
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 494}
   m_MaxSize: {x: 10004, y: 14044}
   vertical: 1
-  controlID: 81
+  controlID: 52
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -348,20 +348,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\xacap\Documents\arkanoid
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f42f0000
-    m_LastClickedID: 12276
-    m_ExpandedIDs: 000000004e2d0000fe2e00005030000000ca9a3b
+    m_SelectedIDs: c2300000
+    m_LastClickedID: 12482
+    m_ExpandedIDs: 00000000522d0000082f00005a30000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -389,7 +389,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004e2d0000fe2e000050300000
+    m_ExpandedIDs: 00000000522d0000082f00005a300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -420,18 +420,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300001e9ffeff303300001e300000723f0000c42e0000c62e0000000000005c300000f85b0000f63000008e330000923300008a330000643d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Canvas (1)
-      m_OriginalName: Canvas (1)
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 19520
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
@@ -494,7 +494,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -654,9 +654,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 02310000
+      m_SelectedIDs: 6e270000
       m_LastClickedID: 0
-      m_ExpandedIDs: dccfffff4ed3ffff5ad3ffff1ed5ffff08d6ffff12d6ffffb4d6ffff66dafffff2daffff28dbffffb8dbffffbadbfffff0dbffff7adcffffb0dcffffaee2ffff0ce5ffff0ee5ffffdce5ffffdee5ffffaee7ffff84e8ffff92e8ffff94e8ffffdae9ffffceeaffffd0eaffff3ef0ffff84f0ffff90f0ffffb4f0ffff42f1ffff44f1ffff98f1ffff5af6ffff7cf9ffff8af9ffff8cf9ffff76fbffffce330000d4330000de330000b03b0000e43b00004e3c0000843c00008e3c0000b83c0000343d0000683d0000723d00009c3d0000943e0000c83e0000ec3e0000984a0000f04a0000
+      m_ExpandedIDs: 56fbffff5afbffff66fbffff76fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

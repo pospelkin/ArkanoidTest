@@ -8,7 +8,8 @@ public enum GameState
 { 
     menu,
     inGame,
-    gameOver
+    gameOver,
+    gameWin
 }
 public class GameBehavior : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class GameBehavior : MonoBehaviour
     public Canvas menuCanvas;
     public Canvas inGameCanvas;
     public Canvas gameOver;
-
+    public Canvas gameWin;
+    
 
     public GameState currentGameState = GameState.menu;
 
@@ -30,21 +32,38 @@ public class GameBehavior : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        //StartGame();
+        currentGameState = GameState.menu;
+    }
+
     void FixedUpdate()
     {
-
         NullObject();
     }
 
-        public void StartGame()
+    void Update()
     {
-        Bullet.instance.StartGame();
-        SetGameState(GameState.inGame);
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartGame();
+        }
+        NullObject();
     }
 
+    public void StartGame()
+    {
+        PlayerController.instance.StartGame();
+        SetGameState(GameState.inGame);
+    }
     public void GameOver()
     {
         SetGameState(GameState.gameOver);
+    }
+    public void GameWin()
+    {
+        SetGameState(GameState.gameWin);
     }
     public void BackToMenu()
     {
@@ -58,37 +77,31 @@ public class GameBehavior : MonoBehaviour
             menuCanvas.enabled = true;
             inGameCanvas.enabled = false;
             gameOver.enabled = false;
+            gameWin.enabled = false;
         }
         else if (newGameState == GameState.inGame)
         {
             menuCanvas.enabled = false;
             inGameCanvas.enabled = true;
             gameOver.enabled = false;
-
+            gameWin.enabled = false;
         }
         else if (newGameState == GameState.gameOver)
         {
             menuCanvas.enabled = false;
             inGameCanvas.enabled = false;
             gameOver.enabled = true;
-
+            gameWin.enabled = false;
+        }
+        else if (newGameState == GameState.gameWin)
+        {
+            menuCanvas.enabled = false;
+            inGameCanvas.enabled = false;
+            gameOver.enabled = false;
+            gameWin.enabled = true;
         }
 
         currentGameState = newGameState;
-    }
-
-
-    void Start()
-    {
-        currentGameState = GameState.menu;
-    }
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartGame();
-            NullObject();
-        }
     }
 
     public int Score
@@ -111,8 +124,12 @@ public class GameBehavior : MonoBehaviour
 
         if (go == null)
         {
-            SceneManager.LoadSceneAsync("YouWin");
+            GameWin();
 
         }
+    }
+    public void Reload()
+    {
+        SceneManager.LoadSceneAsync("Game");
     }
 }
